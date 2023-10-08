@@ -1,0 +1,77 @@
+{
+  "applications": "*",
+  "changelogDate": "20230919085318",
+  "clientRootFolder": "files",
+  "documentation": "资源分类",
+  "dto": "mapstruct",
+  "entityTableName": "resource_category",
+  "fields": [
+    {
+      "documentation": "标题",
+      "fieldName": "title",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "40"
+    },
+    {
+      "documentation": "代码",
+      "fieldName": "code",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "20"
+    },
+    {
+      "documentation": "排序",
+      "fieldName": "orderNumber",
+      "fieldType": "Integer"
+    }
+  ],
+  "fieldsContainParentAndChildren": true,
+  "javadoc": "资源分类",
+  "jpaMetamodelFiltering": true,
+  "moduleName": "oss",
+  "name": "ResourceCategory",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "documentation": "文件列表",
+      "otherEntityField": "url",
+      "otherEntityName": "uploadFile",
+      "otherEntityRelationshipName": "category",
+      "relationshipName": "files",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "documentation": "下级列表",
+      "otherEntityField": "title",
+      "otherEntityName": "resourceCategory",
+      "otherEntityRelationshipName": "parent",
+      "relationshipName": "children",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "documentation": "图片列表",
+      "otherEntityField": "url",
+      "otherEntityName": "uploadImage",
+      "otherEntityRelationshipName": "category",
+      "relationshipName": "images",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "documentation": "上级",
+      "otherEntityField": "title",
+      "otherEntityName": "resourceCategory",
+      "otherEntityRelationshipName": "children",
+      "relationshipName": "parent",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass",
+  "skipFakeData": true,
+  "treeIndicatorFieldName": "title"
+}

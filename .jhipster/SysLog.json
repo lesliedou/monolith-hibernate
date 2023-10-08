@@ -1,0 +1,105 @@
+{
+  "addCustomMethod": "rest-queryService",
+  "applications": "*",
+  "changelogDate": "20230919090018",
+  "clientRootFolder": "log",
+  "documentation": "系统日志",
+  "dto": "mapstruct",
+  "entityPackage": "log",
+  "entityTableName": "sys_log",
+  "extendAbstractAuditingEntity": true,
+  "fields": [
+    {
+      "documentation": "日志类型",
+      "fieldName": "logType",
+      "fieldType": "LogType",
+      "fieldTypeDocumentation": "日志类型（1登录日志，2操作日志）",
+      "fieldValues": "LOGIN,OPERATE",
+      "fieldValuesJavadocs": {
+        "LOGIN": "登录日志",
+        "OPERATE": "操作日志"
+      }
+    },
+    {
+      "documentation": "日志内容",
+      "fieldName": "logContent",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "操作类型",
+      "fieldName": "operateType",
+      "fieldType": "OperateType",
+      "fieldValues": "LIST,ADD,EDIT,DELETE,IMPORT,EXPORT,OTHER,LOGIN,STATS,VIEW,AUDIT,WORK_FLOW",
+      "fieldValuesJavadocs": {
+        "ADD": "新增",
+        "AUDIT": "审核",
+        "DELETE": "删除",
+        "EDIT": "编辑",
+        "EXPORT": "导出",
+        "IMPORT": "导入",
+        "LIST": "列表",
+        "LOGIN": "登录",
+        "OTHER": "其他",
+        "STATS": "统计",
+        "VIEW": "查看",
+        "WORK_FLOW": "工作流"
+      }
+    },
+    {
+      "documentation": "操作用户账号",
+      "fieldName": "userid",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "操作用户名称",
+      "fieldName": "username",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "IP",
+      "fieldName": "ip",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "请求java方法",
+      "fieldName": "method",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "请求路径",
+      "fieldName": "requestUrl",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "请求参数",
+      "fieldName": "requestParam",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "text",
+      "options": {
+        "endUsed": "textArea"
+      }
+    },
+    {
+      "documentation": "请求类型",
+      "fieldName": "requestType",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "耗时",
+      "fieldName": "costTime",
+      "fieldType": "Long"
+    }
+  ],
+  "fieldsContainParentAndChildren": false,
+  "javadoc": "系统日志",
+  "jpaMetamodelFiltering": true,
+  "moduleName": "log",
+  "name": "SysLog",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass",
+  "skipFakeData": true,
+  "skipWebButton": "listAdd-listEdit",
+  "skipWebsite": true
+}

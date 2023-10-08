@@ -1,0 +1,52 @@
+{
+  "applications": "*",
+  "changelogDate": "20230919091018",
+  "clientRootFolder": "system",
+  "documentation": "数据权限规则",
+  "dto": "mapstruct",
+  "entityPackage": "system",
+  "entityTableName": "data_permission_rule",
+  "extendAbstractAuditingEntity": true,
+  "fields": [
+    {
+      "documentation": "菜单ID",
+      "fieldName": "permissionId",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "规则名称",
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "字段",
+      "fieldName": "column",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "条件",
+      "fieldName": "conditions",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "规则值",
+      "fieldName": "value",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "禁用状态",
+      "fieldName": "disabled",
+      "fieldType": "Boolean"
+    }
+  ],
+  "fieldsContainParentAndChildren": false,
+  "javadoc": "数据权限规则",
+  "jpaMetamodelFiltering": true,
+  "moduleName": "system",
+  "name": "DataPermissionRule",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass",
+  "skipFakeData": true
+}

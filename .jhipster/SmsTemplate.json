@@ -1,0 +1,50 @@
+{
+  "applications": "*",
+  "changelogDate": "20230919091318",
+  "clientRootFolder": "system",
+  "documentation": "消息模板",
+  "dto": "mapstruct",
+  "entityPackage": "system",
+  "entityTableName": "sms_template",
+  "extendAbstractAuditingEntity": true,
+  "fields": [
+    {
+      "documentation": "模板标题",
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "模板CODE",
+      "fieldName": "code",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "模板类型",
+      "fieldName": "type",
+      "fieldType": "MessageSendType",
+      "fieldTypeDocumentation": "通知类型",
+      "fieldValues": "EMAIL,SMS,WECHAT"
+    },
+    {
+      "documentation": "模板内容",
+      "fieldName": "content",
+      "fieldType": "String"
+    },
+    {
+      "documentation": "模板测试json",
+      "fieldName": "testJson",
+      "fieldType": "String"
+    }
+  ],
+  "fieldsContainParentAndChildren": false,
+  "javadoc": "消息模板",
+  "jpaMetamodelFiltering": true,
+  "moduleName": "system",
+  "name": "SmsTemplate",
+  "pagination": "pagination",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "serviceClass",
+  "skipFakeData": true,
+  "skipWebsite": true
+}
