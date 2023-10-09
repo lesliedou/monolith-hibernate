@@ -138,6 +138,7 @@
   "name": "User",
   "pagination": "pagination",
   "publicDto": "id-login-firstName-lastName-email-mobile-birthday-langKey-imageUrl",
+  "publicDtoFile": true,
   "relationships": [
     {
       "documentation": "部门",

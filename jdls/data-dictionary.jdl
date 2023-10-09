@@ -62,8 +62,10 @@ entity CommonFieldData {
     sortValue Integer /** 排序 */
     disabled Boolean /** 是否禁用 */
     @fieldConfig(hideInList-hideInForm)
+    @ownerEntityName
     ownerEntityName String /** 实体名称 */
     @fieldConfig(hideInList-hideInForm)
+    @ownerEntityId
     ownerEntityId String /** 使用实体ID */
 }
 

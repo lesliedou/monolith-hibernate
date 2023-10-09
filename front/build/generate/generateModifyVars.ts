@@ -1,6 +1,6 @@
-import { resolve } from 'path';
-import { getThemeVariables } from 'ant-design-vue/dist/theme';
 import { generateAntColors, primaryColor } from '../config/themeConfig';
+import { getThemeVariables } from 'ant-design-vue/dist/theme';
+import { resolve } from 'path';
 
 /**
  * less global variable

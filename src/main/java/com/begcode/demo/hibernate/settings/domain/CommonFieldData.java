@@ -1,9 +1,12 @@
 package com.begcode.demo.hibernate.settings.domain;
 
+import com.begcode.demo.hibernate.domain.Owner;
 import com.begcode.demo.hibernate.domain.enumeration.CommonFieldType;
 import jakarta.persistence.*;
 import java.io.Serializable;
 import lombok.*;
+import org.hibernate.annotations.Any;
+import org.hibernate.annotations.AnyDiscriminatorValue;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -73,14 +76,21 @@ public class CommonFieldData implements Serializable {
     /**
      * 实体名称
      */
-    @Column(name = "owner_entity_name")
+    @Column(name = "owner_entity_name", insertable = false, updatable = false)
     private String ownerEntityName;
 
     /**
      * 使用实体ID
      */
-    @Column(name = "owner_entity_id")
+    @Column(name = "owner_entity_id", insertable = false, updatable = false)
     private String ownerEntityId;
+
+    @Any(fetch = FetchType.LAZY)
+    @Column(name = "owner_entity_name")
+    @JoinColumn(name = "owner_entity_id")
+    @AnyDiscriminatorValue(discriminator = "Dictionary", entity = Dictionary.class)
+    @AnyDiscriminatorValue(discriminator = "SiteConfig", entity = SiteConfig.class)
+    private Owner owner;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 

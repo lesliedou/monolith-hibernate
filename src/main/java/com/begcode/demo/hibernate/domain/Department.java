@@ -4,8 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import java.io.Serializable;
 import java.time.ZonedDateTime;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.*;
 import lombok.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -199,13 +198,11 @@ public class Department implements Serializable {
 
     public Department addAuthorities(Authority authority) {
         this.authorities.add(authority);
-//        authority.set(this);
         return this;
     }
 
     public Department removeAuthorities(Authority authority) {
         this.authorities.remove(authority);
-//        authority.set(null);
         return this;
     }
 

@@ -75,7 +75,8 @@
       "fieldName": "ownerEntityName",
       "fieldType": "String",
       "options": {
-        "fieldConfig": "hideInList-hideInForm"
+        "fieldConfig": "hideInList-hideInForm",
+        "ownerEntityName": true
       }
     },
     {
@@ -83,7 +84,8 @@
       "fieldName": "ownerEntityId",
       "fieldType": "String",
       "options": {
-        "fieldConfig": "hideInList-hideInForm"
+        "fieldConfig": "hideInList-hideInForm",
+        "ownerEntityId": true
       }
     }
   ],

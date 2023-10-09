@@ -1,11 +1,11 @@
 package com.begcode.demo.hibernate.settings.domain;
 
 import com.begcode.demo.hibernate.domain.AbstractAuditingEntity;
+import com.begcode.demo.hibernate.domain.Owner;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.*;
 import lombok.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -21,7 +21,7 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @RequiredArgsConstructor
 @ToString
 @SuppressWarnings("common-java:DuplicatedBlocks")
-public class SiteConfig extends AbstractAuditingEntity<Long, SiteConfig> implements Serializable {
+public class SiteConfig extends AbstractAuditingEntity<Long, SiteConfig> implements Serializable, Owner {
 
     private static final long serialVersionUID = 1L;
 
@@ -112,13 +112,13 @@ public class SiteConfig extends AbstractAuditingEntity<Long, SiteConfig> impleme
 
     public SiteConfig addItems(CommonFieldData commonFieldData) {
         this.items.add(commonFieldData);
-//        commonFieldData.set(this);
+        commonFieldData.setOwner(this);
         return this;
     }
 
     public SiteConfig removeItems(CommonFieldData commonFieldData) {
         this.items.remove(commonFieldData);
-//        commonFieldData.set(null);
+        commonFieldData.setOwner(null);
         return this;
     }
 
