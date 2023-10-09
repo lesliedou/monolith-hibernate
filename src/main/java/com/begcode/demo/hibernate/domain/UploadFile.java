@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 import java.time.ZonedDateTime;
 import lombok.*;
+import org.hibernate.annotations.Any;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -81,13 +82,13 @@ public class UploadFile extends AbstractAuditingEntity<Long, UploadFile> impleme
     /**
      * 实体名称
      */
-    @Column(name = "owner_entity_name")
+    @Column(name = "owner_entity_name", insertable = false, updatable = false)
     private String ownerEntityName;
 
     /**
      * 使用实体ID
      */
-    @Column(name = "owner_entity_id")
+    @Column(name = "owner_entity_id", insertable = false, updatable = false)
     private String ownerEntityId;
 
     /**
@@ -125,6 +126,11 @@ public class UploadFile extends AbstractAuditingEntity<Long, UploadFile> impleme
      */
     @Column(name = "reference_count")
     private Long referenceCount;
+
+    @Any(fetch = FetchType.LAZY)
+    @Column(name = "owner_entity_name")
+    @JoinColumn(name = "owner_entity_id")
+    private Owner owner;
 
     /**
      * 所属分类
