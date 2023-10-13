@@ -136,7 +136,7 @@ public class UserResourceIT {
         user.setActivated(true);
         user.setImageUrl(DEFAULT_IMAGEURL);
         user.setLangKey(DEFAULT_LANGKEY);
-        user.setAuthorities(authorityService.findFirstByCode(AuthoritiesConstants.USER).map(Collections::singleton).get());
+        user.setAuthorities(authorityService.findFirstByCode(AuthoritiesConstants.USER).map(Collections::singleton).orElse(null));
 
         restUserMockMvc
             .perform(post("/api/admin/users").contentType(MediaType.APPLICATION_JSON).content(TestUtil.convertObjectToJsonBytes(user)))
@@ -169,7 +169,7 @@ public class UserResourceIT {
         user.setActivated(true);
         user.setImageUrl(DEFAULT_IMAGEURL);
         user.setLangKey(DEFAULT_LANGKEY);
-        user.setAuthorities(authorityService.findFirstByCode(AuthoritiesConstants.USER).map(Collections::singleton).get());
+        user.setAuthorities(authorityService.findFirstByCode(AuthoritiesConstants.USER).map(Collections::singleton).orElse(null));
 
         // An entity with an existing ID cannot be created, so this API call must fail
         restUserMockMvc
@@ -195,7 +195,7 @@ public class UserResourceIT {
         user.setActivated(true);
         user.setImageUrl(DEFAULT_IMAGEURL);
         user.setLangKey(DEFAULT_LANGKEY);
-        user.setAuthorities(authorityService.findFirstByCode(AuthoritiesConstants.USER).map(Collections::singleton).get());
+        user.setAuthorities(authorityService.findFirstByCode(AuthoritiesConstants.USER).map(Collections::singleton).orElse(null));
 
         // Create the User
         restUserMockMvc
@@ -221,7 +221,7 @@ public class UserResourceIT {
         user.setActivated(true);
         user.setImageUrl(DEFAULT_IMAGEURL);
         user.setLangKey(DEFAULT_LANGKEY);
-        user.setAuthorities(authorityService.findFirstByCode(AuthoritiesConstants.USER).map(Collections::singleton).get());
+        user.setAuthorities(authorityService.findFirstByCode(AuthoritiesConstants.USER).map(Collections::singleton).orElse(null));
 
         // Create the User
         restUserMockMvc
@@ -303,7 +303,7 @@ public class UserResourceIT {
         user.setCreatedDate(updatedUser.getCreatedDate());
         user.setLastModifiedBy(updatedUser.getLastModifiedBy());
         user.setLastModifiedDate(updatedUser.getLastModifiedDate());
-        user.setAuthorities(authorityService.findFirstByCode(AuthoritiesConstants.USER).map(Collections::singleton).get());
+        user.setAuthorities(authorityService.findFirstByCode(AuthoritiesConstants.USER).map(Collections::singleton).orElse(null));
 
         restUserMockMvc
             .perform(put("/api/admin/users").contentType(MediaType.APPLICATION_JSON).content(TestUtil.convertObjectToJsonBytes(user)))
@@ -344,7 +344,7 @@ public class UserResourceIT {
         user.setCreatedDate(updatedUser.getCreatedDate());
         user.setLastModifiedBy(updatedUser.getLastModifiedBy());
         user.setLastModifiedDate(updatedUser.getLastModifiedDate());
-        user.setAuthorities(authorityService.findFirstByCode(AuthoritiesConstants.USER).map(Collections::singleton).get());
+        user.setAuthorities(authorityService.findFirstByCode(AuthoritiesConstants.USER).map(Collections::singleton).orElse(null));
 
         restUserMockMvc
             .perform(put("/api/admin/users").contentType(MediaType.APPLICATION_JSON).content(TestUtil.convertObjectToJsonBytes(user)))
@@ -396,7 +396,7 @@ public class UserResourceIT {
         user.setCreatedDate(updatedUser.getCreatedDate());
         user.setLastModifiedBy(updatedUser.getLastModifiedBy());
         user.setLastModifiedDate(updatedUser.getLastModifiedDate());
-        user.setAuthorities(authorityService.findFirstByCode(AuthoritiesConstants.USER).map(Collections::singleton).get());
+        user.setAuthorities(authorityService.findFirstByCode(AuthoritiesConstants.USER).map(Collections::singleton).orElse(null));
 
         restUserMockMvc
             .perform(put("/api/admin/users").contentType(MediaType.APPLICATION_JSON).content(TestUtil.convertObjectToJsonBytes(user)))
@@ -436,7 +436,7 @@ public class UserResourceIT {
         user.setCreatedDate(updatedUser.getCreatedDate());
         user.setLastModifiedBy(updatedUser.getLastModifiedBy());
         user.setLastModifiedDate(updatedUser.getLastModifiedDate());
-        user.setAuthorities(authorityService.findFirstByCode(AuthoritiesConstants.USER).map(Collections::singleton).get());
+        user.setAuthorities(authorityService.findFirstByCode(AuthoritiesConstants.USER).map(Collections::singleton).orElse(null));
 
         restUserMockMvc
             .perform(put("/api/admin/users").contentType(MediaType.APPLICATION_JSON).content(TestUtil.convertObjectToJsonBytes(user)))
@@ -488,7 +488,7 @@ public class UserResourceIT {
         userDTO.setLangKey(DEFAULT_LANGKEY);
         userDTO.setCreatedBy(DEFAULT_LOGIN_ID);
         userDTO.setLastModifiedBy(DEFAULT_LOGIN_ID);
-        userDTO.setAuthorities(authorityService.findFirstByCode(AuthoritiesConstants.USER).map(Collections::singleton).get());
+        userDTO.setAuthorities(authorityService.findFirstByCode(AuthoritiesConstants.USER).map(Collections::singleton).orElse(null));
 
         User user = userMapper.userDTOToUser(userDTO);
         assertThat(user.getId()).isEqualTo(DEFAULT_ID);
@@ -533,7 +533,7 @@ public class UserResourceIT {
         assertThat(userDTO.getCreatedDate()).isEqualTo(user.getCreatedDate());
         assertThat(userDTO.getLastModifiedBy()).isEqualTo(DEFAULT_LOGIN_ID);
         assertThat(userDTO.getLastModifiedDate()).isEqualTo(user.getLastModifiedDate());
-        assertThat(userDTO.getAuthorities()).containsExactly(authorityService.findFirstByCode(AuthoritiesConstants.USER).get());
+        assertThat(userDTO.getAuthorities()).containsExactly(authorityService.findFirstByCode(AuthoritiesConstants.USER).orElse(null));
         assertThat(userDTO.toString()).isNotNull();
     }
 

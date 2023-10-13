@@ -40,6 +40,8 @@
   },
   "devDependencies": {
     "concurrently": "8.2.1",
+    "prettier-plugin-java": "1.6.0",
+    "prettier-plugin-packagejson": "2.4.6",
     "wait-on": "7.0.1"
   }
 }

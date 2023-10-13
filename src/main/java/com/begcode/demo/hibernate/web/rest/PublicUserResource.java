@@ -4,6 +4,7 @@ import com.begcode.demo.hibernate.service.UserQueryService;
 import com.begcode.demo.hibernate.service.UserService;
 import com.begcode.demo.hibernate.service.criteria.UserCriteria;
 import com.begcode.demo.hibernate.service.dto.UserDTO;
+import com.begcode.demo.hibernate.service.mapper.UserMapper;
 import java.util.*;
 import java.util.Collections;
 import org.slf4j.Logger;
@@ -32,9 +33,12 @@ public class PublicUserResource {
 
     private final UserQueryService userQueryService;
 
-    public PublicUserResource(UserService userService, UserQueryService userQueryService) {
+    private final UserMapper userMapper;
+
+    public PublicUserResource(UserService userService, UserQueryService userQueryService, UserMapper userMapper) {
         this.userService = userService;
         this.userQueryService = userQueryService;
+        this.userMapper = userMapper;
     }
 
     /**

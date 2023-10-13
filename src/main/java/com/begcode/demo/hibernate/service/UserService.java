@@ -347,7 +347,7 @@ public class UserService {
      */
     public Optional<AdminUserDTO> updateUserMobile(String mobile) {
         return Optional
-            .of(userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin().get()))
+            .of(userRepository.findOneByLogin(SecurityUtils.getCurrentUserLogin().orElseThrow()))
             .filter(Optional::isPresent)
             .map(Optional::get)
             .map(user -> {

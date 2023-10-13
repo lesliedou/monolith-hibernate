@@ -221,19 +221,6 @@ application:
     root-path: data
     domainUrl: /
     type: local
-  oss:
-    name: local
-    enabled: true
-    endpoint: /
-    bucketName: data
-  sms:
-    name: ali
-    enabled: true
-    templateId: xxxx
-    regionId: data
-    accessKey: xxxx
-    secretKey: xxxx
-    signName: xxxx
   pay:
     wxPay:
       appId: xxxxxxx #微信公众号或者小程序等的appid

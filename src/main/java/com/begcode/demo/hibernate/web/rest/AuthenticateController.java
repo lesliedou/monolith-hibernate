@@ -14,7 +14,6 @@ import com.begcode.demo.hibernate.security.SecurityUtils;
 import com.begcode.demo.hibernate.security.annotation.PermissionDefine;
 import com.begcode.demo.hibernate.util.RandImageUtil;
 import com.begcode.demo.hibernate.web.rest.errors.BadRequestAlertException;
-import com.begcode.demo.hibernate.web.rest.errors.CommonException;
 import com.begcode.demo.hibernate.web.rest.vm.LoginVM;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.swagger.v3.oas.annotations.Operation;
@@ -173,7 +172,7 @@ public class AuthenticateController {
             return ResponseEntity.ok(base64);
         } catch (Exception e) {
             log.error(e.getMessage());
-            throw new CommonException("randomImageError", "获取验证码出错");
+            throw new BadRequestAlertException("获取验证码出错", "Login", "randomImageError");
         }
     }
 

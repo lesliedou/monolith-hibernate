@@ -87,7 +87,6 @@ entity Authority (jhi_authority) {
 @importData
 @importDataFile(jhi_user-rel_jhi_user__authorities)
 @builtInUser
-@builtIn
 @addCustomMethod(queryService)
 @moduleName(system)
 @adminUserDto(AdminUserDTO)
